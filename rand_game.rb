@@ -1,8 +1,8 @@
 print "Hello and welcome to my 'Guess the Number Game'\n"
 print "Are you ready to play? (y/n): "
-ans = gets.chomp
+input = gets.chomp
 
-if ans == "y"
+if input == "y"
 	print "Ok lets play!\n"
 else
 	print "Well, maybe you can play later.\n"
@@ -15,16 +15,22 @@ comp_num = rand(1..10)
 print "Please pick a number from 1 to 10: "
 answer = gets.chomp.to_i
 
+# Need to add some kind of loop here so that
+# it ask the user to pick another number
+# and run again against the computers number.
 puts "You picked #{answer}"
 
-# need to add a loop here 
-#while answer != comp_num
-#	print "You did not guess right, try again.\n"
-#else
-#	print "You chose correct, you win!\n"
-#end
+while (answer != comp_num)
+	puts "You did not choose the correct number. Please try again."
+	answer = gets.chomp.to_i
+	if answer == comp_num
+		puts "You picked the right number, congratz!!!"
+	else
+		puts "You picked #{answer}"
+	end
+end
 
-puts "The computers number was #{comp_num}"
+puts "The computer's number was #{comp_num}"
 
 
 
